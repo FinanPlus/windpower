@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Potencial técnico-económico de la energía eólica en Oaxaca</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+        /* Variables de colores */
+        :root {
+            --primary-color: #00695c;
+            --primary-dark: #004d40;
+            --primary-light: #4db6ac;
+            --secondary-color: #ff8f00;
+            --accent-color: #0288d1;
+            --light-bg: #f8f9fa;
+            --light-green: #e8f5e9;
+            --light-blue: #e3f2fd;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        ul {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Navegación móvil */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            overflow-y: auto;
+            padding-top: 80px;
+            transform: translateX(-100%);
+            transition: var(--transition);
+            z-index: 900;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        .sidebar nav li {
+            margin: 12px 0;
+        }
+
+        .sidebar nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        /* Contenido principal */
+        main {
+            margin-left: 0;
+            transition: var(--transition);
+        }
+
+        main.sidebar-active {
+            margin-left: 260px;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background-color: var(--light-green);
+            border-radius: 8px;
+            margin: 40px 0;
+            padding: 60px 40px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 77, 64, 0.7), rgba(0, 77, 64, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contenido del avance */
+        .content-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .content-box pre {
+            white-space: pre-wrap;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 240px;
+            }
+            
+            main.sidebar-active {
+                margin-left: 240px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .sidebar {
+                width: 280px;
+            }
+            
+            main.sidebar-active {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+            
+            .section-alt {
+                padding: 40px 20px;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .content-box {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado principal -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Proyecto de Cultura Digital – Otoño 2025</div>
+            <button class="mobile-menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Menú de navegación vertical -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#portada" class="nav-link">Portada</a></li>
+                <li><a href="#investigacion" class="nav-link">Investigación</a></li>
+                <li><a href="#innovacion" class="nav-link">Propuesta de innovación</a></li>
+                <li><a href="#ciberetica" class="nav-link">Ciberseguridad y ética</a></li>
+                <li><a href="#difusion" class="nav-link">Difusión y comunicación</a></li>
+                <li><a href="#conclusiones" class="nav-link">Conclusiones e impacto</a></li>
+                <li><a href="#contenido-completo" class="nav-link">Contenido completo</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main id="mainContent">
+        <!-- Portada -->
+        <section id="portada" class="hero">
+            <img src="2bdeff8d-a730-4fb1-a384-f7e3cf40294c.png" alt="Paisaje con turbinas eólicas" />
+            <div class="overlay">
+                <h1>Potencial técnico-económico de la energía eólica para electrificar mediante microrredes a comunidades rurales aisladas del estado de Oaxaca (2025-2030)</h1>
+                <p>Una herramienta para líderes comunitarios y estudiantes</p>
+            </div>
+        </section>
+
+        <!-- Resumen -->
+        <section class="section-alt">
+            <h2>Resumen</h2>
+            <p>
+                Oaxaca cuenta con una de las mayores capacidades eólicas instaladas de México. La región del Istmo de
+                Tehuantepec posee vientos ideales para la generación de energía, con una capacidad instalada de
+                <strong>2.758 MW</strong>, sin embargo, muchas comunidades rurales permanecen sin acceso a electricidad o
+                dependen de combustibles contaminantes como el diésel y la leña. Esta propuesta aborda el potencial
+                de la energía eólica para electrificar dichas comunidades mediante <em>microrredes</em>, sustituyendo
+                fuentes nocivas por energía limpia y promoviendo el desarrollo socioeconómico y la equidad en Oaxaca.
+            </p>
+        </section>
+
+        <!-- Investigación -->
+        <section id="investigacion">
+            <h2>Investigación</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Objetivos</h3>
+                    <p><strong>Objetivo general:</strong> Analizar si la energía eólica podría ser una opción viable para una familia
+                    rural utilizando únicamente información pública y cálculos sencillos.</p>
+                    <p><strong>Objetivos específicos:</strong></p>
+                    <ul>
+                        <li>Buscar datos de viento de los últimos años para la región de la comunidad.</li>
+                        <li>Investigar cuánta electricidad consume mensualmente una casa rural típica y cuánto paga, utilizando datos de CFE e INEGI.</li>
+                        <li>Calcular, con una fórmula simple, cuánta electricidad podría generar un pequeño aerogenerador con el viento promedio de la zona.</li>
+                        <li>Comparar el precio de un aerogenerador pequeño en línea con el ahorro mensual en el recibo de luz.</li>
+                        <li>Hacer una lista de las principales ventajas y desventajas de instalar un aerogenerador casero en una comunidad rural.</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Palabras clave</h3>
+                    <ul>
+                        <li>Energía eólica</li>
+                        <li>Microrredes</li>
+                        <li>Comunidades rurales</li>
+                        <li>Oaxaca</li>
+                    </ul>
+                    
+                    <h3>Contexto</h3>
+                    <p>
+                        El Istmo de Tehuantepec es famoso por sus vientos constantes, atrayendo inversiones eólicas
+                        nacionales y extranjeras. A pesar de la riqueza generada, los beneficios no llegan a quienes
+                        habitan estas tierras: muchas comunidades carecen de electricidad o utilizan leña y diésel,
+                        generando contaminación intradomiciliaria, deforestación y problemas de salud.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Datos</h3>
+            <p>
+                De acuerdo con la Asociación Mexicana de Energía Eólica, Oaxaca lidera el ranking nacional con
+                una capacidad eólica instalada de <strong>2.758 MW</strong>. El uso de leña como combustible en zonas
+                rurales genera altos niveles de contaminación en interiores y enfermedades respiratorias, además
+                de contribuir a la deforestación y a las emisiones de CO₂. Las microrredes eólicas permitirían
+                electrificar centros de salud (refrigeración de vacunas y equipos médicos), escuelas (iluminación y
+                computadoras) y sistemas de agua potable, reduciendo la migración juvenil y facilitando la
+                educación en línea y el teletrabajo.
+            </p>
+
+            <h3>Conclusión</h3>
+            <p>
+                La investigación demuestra que la energía eólica en Oaxaca no tiene por qué ser sinónimo de
+                conflicto sino de oportunidad. Con una estrategia adecuada que incluya la participación de las
+                comunidades en el diseño y gestión de microrredes, el viento que hoy divide puede iluminar
+                hogares, escuelas y caminos, mejorar la salud y la educación, crear empleos locales y reducir la
+                presión sobre los bosques y las emisiones de gases de efecto invernadero.
+            </p>
+        </section>
+
+        <!-- Propuesta de innovación -->
+        <section id="innovacion" class="section-alt">
+            <h2>Propuesta de innovación</h2>
+            <p>
+                Se propone desarrollar <strong>"Mi Comunidad Energética"</strong>, una guía digital en formato PDF que sirve
+                como herramienta de evaluación para líderes comunitarios y estudiantes. Esta guía integra en un solo
+                documento datos específicos de Oaxaca, fórmulas simplificadas y consideraciones sociales basadas en la
+                investigación.
+            </p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Descripción y tipo</h3>
+                    <p>
+                        La guía es un documento interactivo que puede imprimirse o utilizarse en un ordenador o dispositivo
+                        móvil. Contiene formularios para introducir datos de la comunidad (nombre, región, número de familias
+                        y actividad económica), secciones para evaluar el recurso eólico mediante la velocidad media del viento,
+                        tablas de consumo energético, cálculos de viabilidad económica y un checklist final de factibilidad.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Tecnología</h3>
+                    <p>
+                        Su implementación se desarrolla en cuatro semanas empleando herramientas accesibles como Microsoft
+                        Word o Google Docs. El resultado se distribuye en formato PDF, que no requiere conexión a internet
+                        permanente, tiene coste cero de desarrollo y permite integrar texto, tablas y enlaces a bases de datos
+                        públicas.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Impacto e innovación</h3>
+                    <p>
+                        La guía empodera a las comunidades rurales al proporcionarles una herramienta sencilla para analizar
+                        la factibilidad de proyectos eólicos. Favorece la participación informada en decisiones energéticas,
+                        reduce la dependencia de combustibles fósiles y promueve el uso de energía limpia.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Sostenibilidad</h3>
+            <p>
+                Al ser un documento de distribución gratuita, <em>Mi Comunidad Energética</em> no genera costes para los
+                usuarios y puede enviarse por correo electrónico o descargarse desde sitios web. No requiere
+                habilidades técnicas especiales para su uso, protege la privacidad al no recopilar datos personales
+                y promueve la transparencia al citar todas las fuentes utilizadas.
+            </p>
+        </section>
+
+        <!-- Ciberseguridad y ética -->
+        <section id="ciberetica">
+            <h2>Ciberseguridad y ética</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Principios</h3>
+                    <p>
+                        La propuesta respeta principios éticos fundamentales. Todas las fuentes de información están citadas
+                        con claridad, se advierte sobre las limitaciones de los análisis y se protege la privacidad de los
+                        usuarios al no recopilar datos personales. La transparencia y la honestidad son ejes centrales del
+                        proyecto.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Medidas de protección</h3>
+                    <ul>
+                        <li><strong>Transparencia:</strong> las referencias a artículos científicos y datos públicos están indicadas en la guía.</li>
+                        <li><strong>Precaución:</strong> se incluyen advertencias sobre las limitaciones de los cálculos y supuestos utilizados.</li>
+                        <li><strong>Privacidad:</strong> el documento no solicita ni almacena información personal; todas las entradas de los
+                            formularios son locales y para uso del lector.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Licencias y uso de contenidos</h3>
+            <p>
+                Los artículos y documentos analizados provienen de revistas académicas de acceso abierto y bajo
+                licencias Creative Commons que permiten su uso con fines educativos y de investigación. La guía
+                solamente reproduce ideas y referencias respetando las restricciones de uso (sin fines comerciales y
+                sin realizar modificaciones sustanciales a las obras originales). Cualquier redistribución debe citar
+                adecuadamente a los autores y cumplir las licencias correspondientes.
+            </p>
+        </section>
+
+        <!-- Difusión y comunicación -->
+        <section id="difusion" class="section-alt">
+            <h2>Difusión y comunicación</h2>
+            
+            <h3>Estrategia digital</h3>
+            <p>
+                La difusión de <em>Mi Comunidad Energética</em> se realizará a través de medios digitales accesibles y
+                gratuitos. El documento en PDF puede enviarse por correo electrónico, compartirse en redes sociales
+                (Facebook, WhatsApp, X, etc.) y alojarse en sitios web educativos. Asimismo, este sitio web
+                complementa la distribución al presentar los objetivos, contexto y resultados de la investigación de
+                manera atractiva.
+            </p>
+
+            <h3>Galería</h3>
+            <div class="gallery">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2e3kbN995yhYX9FikwMGSnFeP9utvkMQXJA&s" alt="Energía eólica" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeenufHl7rLcf-Cjlx3K56umVIT1DUPP8zgQ&s" alt="Energía eólica en Oaxaca" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+
+            <h3>Contacto</h3>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Equipo de trabajo</h4>
+                    <ul>
+                        <li>Helijai Roberta Gómez Luna – 188237</li>
+                        <li>Diego Ortiz Espinosa – 188339</li>
+                        <li>Ximena Arboleya Armengol – 188544</li>
+                        <li>Emiliano Limas Arriola – 188557</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Institución</h4>
+                    <p>Universidad de las Américas Puebla</p>
+                    <p>Cholula, Puebla, México</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusiones e impacto -->
+        <section id="conclusiones">
+            <h2>Conclusiones e impacto</h2>
+            <p>
+                La electrificación mediante microrredes eólicas en Oaxaca tiene un gran potencial para transformar la
+                vida en comunidades rurales aisladas. Esta solución permitiría el funcionamiento continuo de centros
+                de salud, escuelas y sistemas de agua potable, reduciendo la contaminación por combustibles fósiles y
+                mejorando la calidad de vida. Además, estimularía la economía local mediante la creación de empleos
+                técnicos y administrativos en la instalación y mantenimiento de microrredes.
+            </p>
+            <p>
+                Desde un punto de vista ambiental, los proyectos eólicos registrados en el Mecanismo de Desarrollo
+                Limpio ya han demostrado una reducción de más de <strong>5,6 millones de toneladas de CO₂ por año</strong> al
+                sustituir la generación con combustibles fósiles. Adoptar microrredes en Oaxaca disminuiría la
+                deforestación y la presión sobre los bosques, contribuyendo a los Objetivos de Desarrollo Sostenible
+                (ODS 7: energía asequible y no contaminante) y ODS 10 (reducción de desigualdades).
+            </p>
+            <p>
+                Éticamente, es crucial que las comunidades sean protagonistas y no simples espectadoras del
+                desarrollo energético. La transparencia, la participación y el respeto por la cultura local son
+                indispensables para asegurar que el viento que sopla sobre el Istmo se convierta en un bien común
+                que ilumine el presente y el futuro de Oaxaca.
+            </p>
+        </section>
+
+        <!-- Contenido completo -->
+        <section id="contenido-completo" class="section-alt">
+            <h2>Contenido completo del avance</h2>
+            <div class="content-box">
+                <pre>
+Universidad de Las Américas Puebla
+Puebla 30 de octubre, 2025
+Asignatura: Cultura Digital
+Período: Otoño, 2025
+Segundo Avance Proyecto Final.
+Equipo número: 7
+Integrantes:
+Helijai Roberta Gómez Luna - 188237
+Diego Ortiz Espinosa 188339
+Ximena Arboleya Armengol - 188544
+Emiliano Limas Arriola- 188557
+
+Potencial técnico-económico de la energía eólica para electrificar mediante microrredes a comunidades rurales aisladas del estado de Oaxaca (2025-2030)  
+
+Problema: "¿Cuál es el potencial técnico-económico de la energía eólica para electrificar mediante microrredes a comunidades rurales aisladas del estado de Oaxaca entre 2025-2030?"
+
+PC: energía eólica, microredes, comunidades rurales, oaxaca
+Traducir al inglés 
+
+Descripción del Problema
+Según la asociación mexicana de energía eólica uno de los estados con mayor potencial eólico en México es Oaxaca como menciona "Oaxaca cuenta con una infraestructura sólida y más de una década de experiencia en el desarrollo eólico y  lidera ampliamente el ranking nacional. Con una capacidad eólica instalada de 2,758 MW" [INEGI,2025], especialmente en el Itsmo de Tehuantepec, lugar donde la velocidad de los vientos alcanza niveles ideales para la generación de energía. Sin embargo, gran cantidad de comunidades rurales aisladas de este mismo estado, carecen del acceso a la electricidad o dependen de fuentes contaminantes e incluso dañinas como el diesel y leña. Se tomará como ejemplo el uso de la leña, esta genera altos niveles de contaminación intradomiciliaria que puede desencadenar en enfermedades respiratorias, además de contribuir al deterioro ambiental por deforestación y emisiones de CO₂.
+Después de ese ejemplo se pueden visualizar de mejor manera el problema y cómo limita el desarrollo socioeconómico, afecta servicios básicos como salud y educación. Esto contradice el Objetivo 7 de la Agenda 2030, por lo que una solución viable es la electrificación mediante microrredes eólicas. 
+
+<a href="https://docs.google.com/document/d/1VqIUdq8lgL8GqU9Q098jrN1QcKYWVyuz_fOd21seAXQ/edit?usp=sharing" target="_blank">Ver documento completo</a>
+                </pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        Proyecto de Cultura Digital · Otoño 2025 – UDLAP
+    </footer>
+
+    <script>
+        // JavaScript para funcionalidad del menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Toggle del menú móvil
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                mainContent.classList.toggle('sidebar-active');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace (en móviles)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        mainContent.classList.remove('sidebar-active');
+                    }
+                });
+            });
+            
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickInsideMenuToggle = menuToggle.contains(event.target);
+                
+                if (!isClickInsideSidebar && !isClickInsideMenuToggle && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    mainContent.classList.remove('sidebar-active');
+                }
+            });
+            
+            // Scroll suave para enlaces de anclaje
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Resaltar enlace activo en el menú
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
